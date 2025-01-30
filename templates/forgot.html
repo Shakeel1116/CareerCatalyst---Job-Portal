@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Career Catalyst</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700|Playfair+Display:400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Career Catalyst - AI-Based Online Job Portal</h1>
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section>
+
+  <!-- Header -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h1><a href="index.html">Job Mapper</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown">
+            <a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown">
+                <a href="#"><span>Job Seeker</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/signin1">Sign In</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <!-- JavaScript Validation Script -->
+  <script>
+    function validateForm() {
+      var pw1 = document.getElementById("pswd1").value;
+      var pw2 = document.getElementById("pswd2").value;
+      var name1 = document.getElementById("fname").value;
+      var name2 = document.getElementById("lname").value;
+
+      if (name1.trim() === "") {
+        alert("First name cannot be empty.");
+        return false;
+      }
+      if (!isNaN(name1)) {
+        alert("First name must contain only characters.");
+        return false;
+      }
+      if (!isNaN(name2)) {
+        alert("Last name must contain only characters.");
+        return false;
+      }
+      if (pw1 === "" || pw2 === "") {
+        alert("Password fields cannot be empty.");
+        return false;
+      }
+      if (pw1.length < 8 || pw1.length > 15) {
+        alert("Password length must be between 8 and 15 characters.");
+        return false;
+      }
+      if (pw1 !== pw2) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      alert("Form submitted successfully.");
+      return true;
+    }
+  </script>
+
+  <!-- Contact Section -->
+  <main id="main">
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Job Seeker Forgot Password Page</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="info">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-geo-alt"></i>
+                <p>Tirupati, Andhra Pradesh, 517507</p>
+              </div>
+              <div class="d-flex align-items-center mt-4">
+                <i class="bi bi-envelope"></i>
+                <p>info@example.com</p>
+              </div>
+              <div class="d-flex align-items-center mt-4">
+                <i class="bi bi-phone"></i>
+                <p>+1 1234567890</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <form action="/forgetback" method="post" onsubmit="return validateForm()">
+              <div class="form-group mt-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="static/js/main.js"></script>
+</body>
+</html>

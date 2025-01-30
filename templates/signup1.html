@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Catalyst</title>
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Playfair+Display" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Career Catalyst - AI-Based Online Job Portal</h1>
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section>
+
+  <!-- Header -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h1><a href="index.html">Career Catalyst</a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Previous Page</a></li>
+          <li class="dropdown">
+            <a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown">
+                <a href="#"><span>Employer</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/signup1">Sign Up</a></li>
+                  <li><a href="/signin1">Sign In</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Form Validation Script -->
+  <script>
+    function validateForm() {
+      const fname = document.getElementById("name").value;
+      const pwd = document.getElementById("pwd").value;
+      const cpwd = document.getElementById("cpwd").value;
+      const state = document.getElementById("inputState").value;
+      const age = document.getElementById("age").value;
+      const address = document.getElementById("addr").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+
+      // Validate name
+      if (!/^[a-zA-Z ]+$/.test(fname)) {
+        alert("Name must contain only letters.");
+        return false;
+      }
+
+      // Validate password length
+      if (pwd.length < 3 || pwd.length > 15) {
+        alert("Password must be between 3 and 15 characters.");
+        return false;
+      }
+
+      // Confirm passwords match
+      if (pwd !== cpwd) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      // Validate state selection
+      if (state === "SelectState") {
+        alert("Please select a valid state.");
+        return false;
+      }
+
+      return true;
+    }
+    function showFlashMessages() {
+      const flashMessages = document.querySelectorAll('.alert');
+      flashMessages.forEach(message => {
+        setTimeout(() => {
+          message.style.transition = 'opacity 0.5s ease';
+          message.style.opacity = '0';
+          setTimeout(() => {
+            message.remove();
+          }, 500);
+        }, 5000);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", showFlashMessages);
+  </script>
+
+  <main id="main">
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <center>
+          <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}</div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+          </div>
+        </center>
+
+        <div class="section-title">
+          <h2>Employee Sign-Up Page</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 col-md-8">
+            <form action="{{url_for('signupback1')}}" method="post" onsubmit="return validateForm()" enctype="multipart/form-data">
+              <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" value="{{ form_data.name if form_data and form_data.name else '' }}"  required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" value="{{ form_data.email if form_data and form_data.email else '' }}" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="password" name="cpwd" id="cpwd" class="form-control" placeholder="Confirm Password" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="number" name="age" id="age" min="18" max="70" class="form-control" placeholder="Age" value="{{ form_data.age if form_data and form_data.age else '' }}" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" name="cname" class="form-control" placeholder="Company Name" value="{{ form_data.cname if form_data and form_data.cname else '' }}" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" name="roll" class="form-control" placeholder="Job Role" value="{{ form_data.roll if form_data and form_data.roll else '' }}"required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="tel" name="pno" class="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" value="{{ form_data.pno if form_data and form_data.pno else '' }}" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea name="addr" id="addr" class="form-control" rows="2" placeholder="Address" required>{{ form_data.addr if form_data and form_data.addr else '' }}</textarea>
+              </div>
+              <div class="form-group mt-3">
+                <select name="state" id="inputState" class="form-control" value="{{ form_data.state if form_data and form_data.state else '' }}" required>
+                  <option value="SelectState">Select State</option>
+                  <option value="Andra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madya Pradesh">Madya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Orissa">Orissa</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttaranchal">Uttaranchal</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadeep">Lakshadeep</option>
+                  <option value="Pondicherry">Pondicherry</option>
+                </select>
+              </div>
+        
+              <div class="form-group mt-3">
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="Male" required> Male<br>
+                <input type="radio" name="gender" value="Female"> Female<br>
+                <input type="radio" name="gender" value="Others"> Others
+              </div>
+              <div class="form-group mt-3">
+                <input type="file" name="filen" class="form-control" required>
+              </div>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>

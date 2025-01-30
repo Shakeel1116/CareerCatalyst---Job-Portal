@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Career Catalyst - AI-Based Online Job Portal</title>
+  <meta content="Your gateway to seamless job applications and AI-powered resume screening." name="description">
+  <meta content="Career Catalyst, Online Job Portal, AI Resume Screening, Jobs" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Career Catalyst - AI-Based Online Job Portal</h1>
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section>
+
+  <!-- Header -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h1><a href="index.html">Career Catalyst</a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown">
+            <a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown">
+                <a href="#"><span>Employer</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/signup1">Sign Up</a></li>
+                  <li><a href="/">Home</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <main id="main">
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <center>
+          <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+          </div>
+        </center>
+
+        <div class="section-title">
+          <h2>Employee Login Page</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="contact-about">
+              <p>Tirupati, Andhra Pradesh, 517507</p>
+              <p>Email: info@example.com</p>
+              <p>Phone: +1 1234567890</p>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <form action="/signinback1" method="post" role="form" onsubmit="return validateForm()">
+              <div class="form-group mt-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group mt-3">
+               <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password" required>
+              </div>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+              <div class="text-center mt-2">
+                <a href="{{ url_for('forgot') }}" class="btn btn-success">Forgot Password</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Career Catalyst</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function validateForm() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("pwd").value.trim();
+
+      if (!email) {
+        alert("Please enter your email.");
+        return false;
+      }
+
+      if (!password) {
+        alert("Please enter your password.");
+        return false;
+      }
+
+      if (password.length < 3 || password.length > 15) {
+        alert("Password must be between 3 and 15 characters.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>

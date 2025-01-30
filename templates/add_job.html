@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Career Catalyst</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon" style="width:400px; height:400px;">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Lonely - v4.7.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center" style="height: 400px;">
+    <h1>Career Catalyst -AI Based Online Job Portal</h1>
+<!--    <h2>I am a graphic designer</h2>-->
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section><!-- End Hero -->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center" style="margin-left: 31px;margin-right: 201px;">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html"></a></h1> </div><br>
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li class="dropdown"><a href="#"><span>Modules</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+<!--              <li><a href="#">Job Seeker</a></li>-->
+              <li class="dropdown"><a href="#"><span>Job Info</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                   <li><a href="/add_job">Add Job</a></li>
+                   <li><a href="/remove_data">Remove</a></li>
+<!--                   <li><a href="/view_job_seekers">Update</a></li>-->
+                </ul>
+              </li>
+                <li class="dropdown"><a href="#"><span>Job Seeker's</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/view_applied_job">View Info</a></li>
+<!--                  <li><a href="/signin">View Job Notifications</a></li>-->
+
+                </ul></li></ul>
+          <li><a class="nav-link scrollto" href="/signin1">Logout</a></li>
+
+
+            </ul>
+          </li>
+<!--          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<script>
+function validateForm() {
+    //collect form data in JavaScript variables
+    var pw1 = document.getElementById("pswd1").value;
+    var pw2 = document.getElementById("pswd2").value;
+    var name1 = document.getElementById("fname").value;
+    var name2 = document.getElementById("lname").value;
+
+    //check empty first name field
+    if(name1 == "") {
+      document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+      return false;
+    }
+
+    //character data validation
+    if(!isNaN(name1)){
+      document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    }
+
+   //character data validation
+    if(!isNaN(name2)){
+      document.getElementById("charMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    }
+
+    //check empty password field
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    //check empty confirm password field
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    } else {
+      alert ("Your password created successfully");
+      document.write("JavaScript form has been submitted successfully");
+    }
+ }
+</script>
+
+  <main id="main">
+<style>
+<!--input[type=radio] {-->
+<!--  position: absolute;-->
+<!--  opacity: 0;-->
+<!--  width: 0;-->
+<!--  height: 0;-->
+<!--}-->
+
+input[type=radio] + img {
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+    outline: 2px solid #f00;
+}
+function ageCalculator() {
+    var userinput = document.getElementById("DOB").value;
+    var dob = new Date(userinput);
+    if(userinput==null || userinput=='') {
+      document.getElementById("message").innerHTML = "**Choose a date please!";
+      return false;
+    } else {
+
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dob.getTime();
+
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff);
+
+    //extract year from date
+    var year = age_dt.getUTCFullYear();
+
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+
+    //display the calculated age
+    return document.getElementById("result").innerHTML =
+              age;
+    }
+}
+
+</style>
+
+
+<!--     ======= Contact Section =======-->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+   <center>
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}</div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        </center>
+
+        <div class="section-title">
+          <h2>Add Job Info</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-4">
+            <div class="contact-about">
+
+            </div>
+          </div>
+
+
+          <div class="col-lg-5 col-md-8">
+            <form action="/add_job_back" method="post" role="form" onsubmit ="return validateForm()" enctype="multipart/form-data">
+              <div class="form-group">
+                <input type="text" name="role" class="form-control" id="role" placeholder="Job Role" required>
+              </div>
+                <div class="form-group mt-3">
+                <textarea class="form-control" name="disc" rows="2" placeholder="Job Discription" required></textarea>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="salary" placeholder="Salary" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="exp" placeholder="Experience" required>
+              </div>
+                  <div class="form-group mt-3">
+                <input type="text" class="form-control" name="skill" placeholder="Skills" required>
+              </div>
+                  <div class="form-group mt-3">
+                <input type="text" class="form-control" name="qual" placeholder="Qualification"  required>
+              </div>
+                                <div class="form-group mt-3">
+              <input type="text" name="notf" class="form-control" placeholder="Notification" required />
+                                </div>
+                <div class="form-group mt-3">
+              <input type="text" name="loc" class="form-control" placeholder="Job Location" required />
+                                </div>
+                   <div class="form-group mt-3">
+              <input type="tel" name="pno" class="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" title="It must contain 10 number" required />
+                                </div>   <div class="form-group mt-3">
+              <input type="email" name="cemail" class="form-control" placeholder="Email" required />
+                                </div>
+
+
+              <div class="text-center"><button type="submit">Add Data</button></div><br>
+              <div class="text-center"><button type="reset">Reset</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+<!--  <footer id="footer">-->
+<!--    <div class="container">-->
+<!--      <div class="copyright">-->
+<!--        &copy; Copyright <strong><span>Lonely</span></strong>. All Rights Reserved-->
+<!--      </div>-->
+<!--      <div class="credits">-->
+<!--        &lt;!&ndash; All the links in the footer should remain intact. &ndash;&gt;-->
+<!--        &lt;!&ndash; You can delete the links only if you purchased the pro version. &ndash;&gt;-->
+<!--        &lt;!&ndash; Licensing information: https://bootstrapmade.com/license/ &ndash;&gt;-->
+<!--        &lt;!&ndash; Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-lonely/ &ndash;&gt;-->
+<!--        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </footer>&lt;!&ndash; End  Footer &ndash;&gt;-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+        <script src="static/js/distric.js"></script>
+
+</body>
+
+</html>

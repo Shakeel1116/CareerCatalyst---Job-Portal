@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Career Catalyst</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon" style="width:400px; height:400px;">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Lonely - v4.7.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center" style="height: 566px;">
+    <h1>Career Catalyst -AI Based Online Job Portal</h1>
+<!--    <h2>I am a graphic designer</h2>-->
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section><!-- End Hero -->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center" style="margin-left: 31px;margin-right: 201px;">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html"></a></h1> </div><br>
+      <div><br><br><br>
+<!--        <img src="{{image}}" alt="#" style="width:400px;height: 271px;">-->
+      </div>
+
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/adminhome">Home</a></li>
+          <li class="dropdown"><a href="#"><span>View Clients Info</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+<!--              <li><a href="#">Job Seeker</a></li>-->
+              <li class="dropdown"><a href="#"><span>Job Seeker</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                   <li><a href="/view_job_seekers">View Registrations</a></li>
+
+                </ul>
+              </li>
+                <li class="dropdown"><a href="#"><span>Employee</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="/view_emlpyers">View Registrations</a></li>
+                  <li><a href="/signin">View Job Notifications</a></li>
+
+                </ul></li></ul>
+          <li><a class="nav-link scrollto" href="/signin2">Logout</a></li>
+
+
+
+            </ul>
+          </li>
+<!--          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+  <center style="width:1300px;"><h1>Employer's Registration Info</h1></center>
+
+    <table class="table table-striped table-hover" style="border: 4px solid white; background-color:#10afa0 !important; margin-left: 10px;margin-top: 38px;"
+           width="1300">
+                      <th style="color:yellow;border: 3px solid white">Name</th>
+                      <th style="color:yellow;border: 3px solid white">Email</th>
+                      <th style="color:yellow;border: 3px solid white">Company Name</th>
+                      <th style="color:yellow;border: 3px solid white">Job Role</th>
+                      <th style="color:yellow;border: 3px solid white">Mobile Number</th>
+                        <th style="color:yellow;border: 3px solid white">Address</th>
+                      <th style="color:yellow;border: 3px solid white">Gender</th>
+                      <th style="color:yellow;border: 3px solid white">Age</th>
+                      <th style="color:yellow;border: 3px solid white">State</th>
+                      <th style="color:yellow;border: 3px solid white">Photo</th>
+
+                    </tr>
+
+					  {% for id,name,email,password,cname,role,phone,addr,gender,age,state,dist,photo in data %}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+            <td>{{cname}}</td>
+            <td>{{role}}</td>
+            <td>{{phone}}</td>
+            <td>{{addr}}</td>
+            <td>{{gender}}</td>
+            <td>{{age}}</td>
+            <td>{{state}}</td>
+            <td>{{dist}}</td>
+            <td><img src="{{photo}}" alt="Profile Image" style="width:150px; height:150px; object-fit:cover; border-radius:50%;"></td>
+        </tr>
+        {% endfor %}
+
+                  </table>
+
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+
+</html>
